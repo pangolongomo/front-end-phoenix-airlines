@@ -1,0 +1,28 @@
+@use "../colors" as *;
+
+.erreur {
+  align-items: center;
+  max-width: 768px;
+  margin: 5rem auto;
+  text-align: center;
+  h1 {
+    font-size: 3rem;
+    color: $primary;
+  }
+  p {
+    font-size: 1.2rem;
+    text-align: justify;
+    color: $primary;
+  }
+  a {
+    color: $secondary;
+  }
+
+  @media screen and (max-width: 784px) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    h1{font-size: 2rem;}
+    p{font-size: 1rem;}
+  }
+}

@@ -1,0 +1,189 @@
+@use "../mixins" as *;
+@use "../colors" as *;
+
+.footer {
+  color: $white;
+  & > div {
+    background-color: $cendreBleu;
+    padding: 2rem;
+
+    .container {
+      justify-content: center;
+
+      @media screen and (max-width: 1216px) {
+        padding: 1rem;
+      }
+    }
+  }
+
+  .contacts {
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+
+      & > div {
+        display: flex;
+        gap: 1rem;
+        flex: 1;
+        .icon {
+          font-size: 3rem;
+        }
+        .description {
+          font-weight: 700;
+
+          a {
+            font-size: 1.25rem;
+            text-decoration: none;
+            color: $white;
+          }
+          p {
+            color: $gris;
+            text-transform: capitalize;
+            margin: 0.5rem 0 0;
+          }
+        }
+      }
+
+      @media screen and (max-width: 1150px) {
+        & > div {
+          flex-direction: column;
+          justify-content: space-around;
+          gap: 0;
+        }
+      }
+
+      @media screen and (max-width: 960px) {
+        flex-direction: column;
+        gap: 2rem;
+
+        & > div {
+          flex-direction: row;
+          gap: 1rem;
+          justify-content: center;
+        }
+      }
+      @media screen and (max-width: 425px) {
+        & > div {
+          flex-direction: column;
+          gap: 0;
+          align-items: center;
+
+          .description {
+            a {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .socials {
+    background-color: #eee;
+    color: $primary;
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+
+      .titre {
+        grid-column: span 5;
+        text-align: center;
+
+        @media screen and (max-width: 832px) {
+          grid-column: span 12;
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      .social_links {
+        grid-column: span 7;
+        text-align: center;
+
+        @media screen and (max-width: 832px) {
+          grid-column: span 12;
+        }
+
+        a {
+          margin-left: 0.5rem;
+          color: $primary;
+          transition: all ease-out 200ms;
+
+          svg {
+            font-size: 2rem;
+          }
+
+          &.linkedin {
+            color: #0a66c2;
+          }
+
+          &.twitter {
+            color: #1da1f2;
+          }
+
+          &.facebook {
+            color: #1877f2;
+          }
+
+          &.instagram {
+            color: #e4405f;
+          }
+
+          &.youtube {
+            color: #cd201f;
+          }
+        }
+      }
+    }
+  }
+
+  .entreprise {
+    .container {
+      display: grid;
+      max-width: 1200px;
+      margin: 0 auto;
+      grid-template-columns: repeat(12, 1fr);
+
+      & > div {
+        grid-column: span 3;
+
+        h3 {
+          color: $secondary;
+          text-transform: uppercase;
+          font-size: 1.25rem;
+        }
+
+        a {
+          color: $white;
+          text-decoration: none;
+        }
+
+        @media screen and (max-width: 1200px) {
+          grid-column: span 6;
+          margin-bottom: 2rem;
+        }
+
+        @media screen and (max-width: 600px) {
+          grid-column: span 12;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    border-top: 0.01rem solid $white;
+    color: $white;
+    text-align: center;
+    a {
+      color: $secondary;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

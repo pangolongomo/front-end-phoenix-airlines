@@ -1,0 +1,37 @@
+@use "../colors" as *;
+
+.horaire {
+  max-width: 1200px;
+  margin: 0 auto;
+  h1 {
+    text-align: center;
+    color: $primary;
+    margin: 3rem 0;
+  }
+  .calendrier {
+
+    table {
+      border-collapse: collapse;
+      margin-top: 1rem;
+      margin-bottom: 5rem;
+      width: 100%;
+
+      th,
+      td {
+        border: 2px solid $primary;
+        text-align: center;
+        padding: 8px;
+      }
+      th {
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+    }
+    @media screen and (max-width: 832px) {
+      overflow-x: scroll;
+    }
+  }
+  @media screen and (max-width: 1216px) {
+    padding: 0 1rem;
+  }
+}

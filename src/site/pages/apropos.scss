@@ -1,0 +1,107 @@
+@use "../colors" as *;
+@use "../mixins" as *;
+
+.about {
+  margin: 5rem 0;
+  .container {
+    @include containerMixin;
+    display: block;
+
+    & > div {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      margin-bottom: 1rem;
+      column-gap: 3rem;
+      align-items: center;
+      align-items: start;
+
+      .aboutImg {
+        grid-column: span 5;
+
+        img {
+          width: 100%;
+          //   margin-top: 2rem;
+        }
+      }
+
+      h1 {
+        color: $primary;
+        grid-column: 6 /13;
+      }
+
+      .aboutDefinition {
+        grid-column: span 7;
+
+        h2 {
+          color: $secondary;
+        }
+        p {
+          color: $primary;
+          line-height: 1.25rem;
+          margin-top: 0;
+          text-align: justify;
+
+          span {
+            font-weight: 600;
+          }
+        }
+      }
+
+      &.mission,
+      &.objectif {
+        .aboutImg {
+          order: 2;
+        }
+
+        .aboutDefinition {
+          order: 1;
+        }
+      }
+
+      &.mission,
+      &.objectif,
+      &.vision {
+        align-items: center;
+        .aboutImg {
+          grid-column: span 6;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .aboutDefinition {
+          grid-column: span 6;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1216px) {
+    .container {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+  @media screen and (max-width: 832px) {
+    .container {
+      & > div {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        &.mission,
+      &.objectif  {
+          .aboutImg {
+            order: 1;
+          }
+  
+          .aboutDefinition {
+            h2{
+              text-align: center;
+            }
+            order: 2;
+          }
+        }
+      }
+    }
+  }
+}

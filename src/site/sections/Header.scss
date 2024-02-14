@@ -1,0 +1,147 @@
+@use "../colors" as *;
+
+header {
+  background-color: $primary;
+  padding: 1rem 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    .logo_toggler {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      .logo {
+        img {
+          max-width: 300px;
+        }
+      }
+      .navbar_toggler {
+        margin: 0.5rem;
+        display: none;
+        svg {
+          font-size: 3rem;
+          color: $secondary;
+        }
+      }
+    }
+    .nav_Contact {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      nav {
+        ul {
+          display: flex;
+          gap: 1rem;
+          li {
+            list-style: none;
+            padding: 0.5rem 0;
+            &:has(> a.active) {
+              border-bottom: 2px solid $secondary;
+            }
+            a {
+              color: $white;
+              font-weight: 700;
+              text-transform: uppercase;
+              text-decoration: none;
+              transition: 0.1s ease-in;
+              padding: 0.5rem 0;
+              border-bottom: 2px solid transparent;
+
+              &.active,
+              &:hover {
+                color: $secondary;
+              }
+            }
+          }
+        }
+      }
+      .contactBtn {
+        a {
+          button {
+            padding: 0.5rem 1rem;
+            background-color: $secondary;
+            font-weight: 700;
+
+            color: $primary;
+            border: 2px solid $secondary;
+            border-radius: 3px;
+
+            &:hover {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1216px) {
+    .container {
+      padding: 0 1rem;
+      .logo_toggler {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  }
+  @media screen and (max-width: 1040px) {
+    padding: 1rem 0 0;
+    .container {
+      flex-direction: column;
+      padding: 0;
+      .logo_toggler {
+        justify-content: space-between;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        .navbar_toggler {
+          display: block;
+        }
+      }
+      .nav_Contact {
+        background-color: #eee;
+        padding: 2rem 0;
+        justify-content: center;
+
+        &.hideNav {
+          display: none;
+        }
+        nav {
+          ul {
+            li {
+              a {
+                color: $primary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+      .logo_toggler {
+        .logo {
+          img {
+            width: 200px;
+          }
+        }
+        .navbar_toggler {
+          svg {
+            font-size: 2rem;
+          }
+        }
+      }
+      .nav_Contact {
+        nav {
+          ul {
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+}

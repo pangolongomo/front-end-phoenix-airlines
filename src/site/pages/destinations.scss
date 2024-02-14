@@ -1,0 +1,65 @@
+@use "../colors" as *;
+@use "../mixins" as *;
+
+.destinations {
+  margin-top: 3rem;
+  color: $primary;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .grille {
+    max-width: 1200px;
+    height: auto;
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 290px);
+    justify-content: center;
+    gap: 10px;
+
+    & > div {
+      width: 290px;
+      height: 290px;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+
+      &:hover {
+        img {
+          scale: 1;
+        }
+        .imgText {
+          display: none;
+        }
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        vertical-align: bottom;
+        transition: 200ms ease-in;
+        scale: 1.2;
+      }
+      .imgText {
+        position: absolute;
+        background-color: rgba($primary, 0.2);
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 500ms ease-in;
+
+        h1 {
+          text-align: center;
+          position: relative;
+          color: $white;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}

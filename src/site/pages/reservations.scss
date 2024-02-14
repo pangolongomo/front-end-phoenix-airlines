@@ -1,0 +1,116 @@
+@use "../colors" as *;
+@use "../mixins" as *;
+
+.reservations {
+  max-width: 1200px;
+  margin: 3rem auto;
+
+  text-align: center;
+
+  h1 {
+    margin-bottom: 1rem;
+    color: $primary;
+    @media screen and (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .checkin_menu {
+    max-width: 768px;
+    background-color: rgba($white, 0.9);
+    box-shadow: 0 4px 8px 0 rgba($primary, 0.2),
+      0 6px 20px 0 rgba($primary, 0.19);
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 3rem;
+    margin: 4rem auto;
+
+    .categorieVol {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .checkin_info {
+      display: flex;
+      gap: 1rem;
+
+      & > div {
+        border: 1px solid $primary;
+      }
+      .places {
+        flex-basis: 400px;
+      }
+      .jour {
+        flex-basis: 250px;
+      }
+      .places,
+      .jour {
+        display: flex;
+        background-color: $white;
+        border-radius: 10px;
+        height: 70px;
+        border: 2px solid $primary;
+
+        &__origin,
+        &__dest,
+        &__aller,
+        &__retour {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          width: 50%;
+          gap: 5px;
+          padding: 2px;
+
+          label {
+            align-self: flex-start;
+            color: $primary;
+            padding-left: 2px;
+          }
+          input {
+            font-size: 1.3rem;
+            padding: 5px;
+            border: none;
+            width: 90%;
+          }
+        }
+        &__dest,
+        &__retour {
+          border-left: 2px solid $primary;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .places {
+          flex-basis: auto;
+          width: 100%;
+        }
+        .jour {
+          flex-basis: auto;
+          width: 100%;
+        }
+      }
+    }
+    .submitBtn {
+      padding: 2rem 0;
+      text-align: right;
+
+      button {
+        background-color: $secondary;
+        padding: 1rem 1.5rem;
+        border-radius: 5px;
+        color: $white;
+        border: 2px solid rgba($primary, 0.1);
+
+        &:hover,
+        &:active {
+          border: 2px solid $primary;
+          color: $primary;
+        }
+      }
+    }
+  }
+}

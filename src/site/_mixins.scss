@@ -1,0 +1,61 @@
+@use "./colors" as *;
+
+@mixin links {
+  text-decoration: none;
+  transition: all ease-out 500ms;
+}
+
+@mixin containerMixin {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@mixin containerMedia {
+  @media screen and (max-width: 1216px) {
+    .container {
+      padding: 1rem;
+    }
+  }
+}
+
+@mixin buttons {
+  color: $secondary;
+  border: 1px solid $secondary;
+  padding: 0.65rem 1.5rem;
+
+  &:hover {
+    color: $white;
+    background-color: $secondary;
+  }
+}
+
+@mixin mx-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin sectionTitle {
+  .titles {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+      font-weight: 900;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      @media screen and (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    hr {
+      width: 7rem;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}

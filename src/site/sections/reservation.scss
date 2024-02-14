@@ -1,0 +1,64 @@
+@use "../colors" as *;
+@use "../mixins" as *;
+
+.reservation {
+  background-color: $primary;
+  color: $white;
+  padding: 2rem 0 3rem;
+  .container {
+    @include containerMixin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include sectionTitle;
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+
+      text-align: center;
+
+      &__part {
+        width: 205px;
+        height: 205px;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+        border-right: 0.0625rem dashed $white;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        svg {
+          fill: $white;
+          font-size: 2.5rem;
+        }
+
+        h3 {
+          font-weight: 900;
+          color: $secondary;
+          font-size: 1.1rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1216px) {
+    .container {
+      padding: 1rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .container {
+      .steps {
+        justify-content: center;
+
+        &__part {
+          border-right: none;
+        }
+      }
+    }
+  }
+}
