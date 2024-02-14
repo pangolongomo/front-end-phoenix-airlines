@@ -5,21 +5,21 @@ import image2 from "../../images/hero/bgimage2.jpg";
 import image3 from "../../images/hero/bgimage3.jpg";
 
 function Hero() {
-  const [bgImage, setBgImage] = useState(image1);
+  const images = [image1, image2, image3];
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    setRandomImage();
-  }, [bgImage]);
-
-  const setRandomImage = () => {
-    let rand = Math.floor(Math.random() * 3);
-    if (rand === 1) setBgImage(image2);
-    if (rand === 2) setBgImage(image3);
-  };
+    const change = setInterval(() => {
+      setCount((prevCount) => {
+        return prevCount === images.length - 1 ? 0 : prevCount + 1;
+      });
+    }, 5000);
+    return () => clearInterval(change);
+  }, []);
 
   let bg = {
     styles: {
-      backgroundImage: "url(" + bgImage + ")",
+      backgroundImage: `url(${images[count]})`,
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center center",
