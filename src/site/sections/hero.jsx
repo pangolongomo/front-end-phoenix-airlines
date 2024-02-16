@@ -23,6 +23,7 @@ function Hero() {
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center center",
+      transition: "ease-in-out 1s",
     },
   };
 
